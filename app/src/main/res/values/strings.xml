@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">APIintegrationv2</string>
+    <string name="newCatImage">New Cat Image</string>
+    <string name="newWaifuImageSFW">New Waifu Image</string>
+    <string name="newWaifuImageNSFW">New NSFW Waifu Image</string>
+    <string name="warning1Text">Are you sure you want a nsfw image?</string>
+    <string name="warning2Text">Are you REALLY sure you want a nsfw image?</string>
+    <string name="warning3Text">Are you REALLY REALLY sure you want a nsfw image?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
