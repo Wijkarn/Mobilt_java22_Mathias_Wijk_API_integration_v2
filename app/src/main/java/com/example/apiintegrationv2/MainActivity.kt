@@ -9,7 +9,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
-import android.widget.ImageView
 import androidx.core.app.NotificationCompat
 import androidx.fragment.app.FragmentManager
 import com.android.volley.Request
@@ -20,7 +19,7 @@ import com.android.volley.toolbox.Volley
 import com.bumptech.glide.Glide
 
 class MainActivity : AppCompatActivity() {
-    lateinit var fm: FragmentManager
+    private lateinit var fm: FragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,9 +84,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun showImage(url: String) {
-        Log.d("showImage", url)
+        //Log.d("showImage", url)
 
-        Glide.with(this).load(url).into(findViewById<ImageView>(R.id.imageView))
+        Glide.with(this).load(url).into(findViewById(R.id.imageView))
 
         if (url.takeLast(3) == "gif") notification()
     }
@@ -104,11 +103,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun notification() {
-        val channelId = "APIV2_ID"
-        val notificationId = 1 // A unique ID for the notification
+        val channelId = "API_V2_ID"
+        val notificationId = 1
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channelName = "Wijkarn_Channel"
+            val channelName = "API_V2_Channel"
             val importance = NotificationManager.IMPORTANCE_DEFAULT
             val notificationChannel = NotificationChannel(channelId, channelName, importance)
 
@@ -123,8 +122,7 @@ class MainActivity : AppCompatActivity() {
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
 
         val intent = Intent(this, MainActivity::class.java)
-        val pendingIntent =
-            PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
         notificationBuilder.setContentIntent(pendingIntent)
 
         val notificationManager = this.getSystemService(NotificationManager::class.java)

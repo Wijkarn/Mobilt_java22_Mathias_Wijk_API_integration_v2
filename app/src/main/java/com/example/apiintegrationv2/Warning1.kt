@@ -18,7 +18,6 @@ class Warning1 : Fragment() {
         val view = inflater.inflate(R.layout.fragment_warning1, container, false)
 
         view.findViewById<Button>(R.id.yesBtn)?.setOnClickListener {
-            //val fm = MainActivity().fm
             val fm = activity?.supportFragmentManager
             val transaction = fm?.beginTransaction()
             transaction?.replace(R.id.frameLayout, Warning2())
